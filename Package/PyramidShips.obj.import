@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b8yr4adcd46s3"
+path="res://.godot/imported/PyramidShips.obj-7a8bc047d0ca0c4fef08ef4e98f7596e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/PyramidShips.obj-7a8bc047d0ca0c4fef08ef4e98f7596e.mesh"]
+
+source_file="res://Package/PyramidShips.obj"
+dest_files=["res://.godot/imported/PyramidShips.obj-7a8bc047d0ca0c4fef08ef4e98f7596e.mesh", "res://.godot/imported/PyramidShips.obj-7a8bc047d0ca0c4fef08ef4e98f7596e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

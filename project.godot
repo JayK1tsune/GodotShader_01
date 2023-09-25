@@ -1,0 +1,31 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="CutShader"
+run/main_scene="res://CutShader.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="CutShader"
+
+[filesystem]
+
+import/fbx/enabled=false
+
+[shader_globals]
+
+border_color={
+"type": "color",
+"value": Color(0.639216, 0.0431373, 0.580392, 1)
+}

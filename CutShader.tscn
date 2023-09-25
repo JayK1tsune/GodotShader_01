@@ -1,0 +1,50 @@
+[gd_scene load_steps=12 format=3 uid="uid://cf6rorv02delg"]
+
+[ext_resource type="Shader" path="res://CutOff.gdshader" id="1_0s0gk"]
+[ext_resource type="Texture2D" uid="uid://cel1p4a66ldlo" path="res://Package/PyramidShips.png" id="2_tqgyn"]
+[ext_resource type="ArrayMesh" uid="uid://b8yr4adcd46s3" path="res://Package/PyramidShips.obj" id="3_pnduw"]
+[ext_resource type="Script" path="res://PyramidShips.gd" id="4_wwdkh"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ypq8a"]
+frequency = 0.0716
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6kwby"]
+seamless = true
+noise = SubResource("FastNoiseLite_ypq8a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xgco"]
+render_priority = 0
+shader = ExtResource("1_0s0gk")
+shader_parameter/cutplane = null
+shader_parameter/_ablbedo = ExtResource("2_tqgyn")
+shader_parameter/_noise = SubResource("NoiseTexture2D_6kwby")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rayw5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx6cf"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ktve"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vfe8r"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PyramidShips" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.85615, 0, 0, 0, 3.64144, 0, 0, 0, 3.13679, 2.27217, -1.10986, 1.23356)
+material_override = SubResource("ShaderMaterial_7xgco")
+mesh = ExtResource("3_pnduw")
+script = ExtResource("4_wwdkh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(11.2748, 0, 0, 0, 1, 0, 0, 0, 11.444, 0, 3.27824, 0)
+mesh = SubResource("PlaneMesh_rayw5")
+surface_material_override/0 = SubResource("StandardMaterial3D_kx6cf")
+
+[node name="Cutplane" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.643593, 0.170744, -0.746079, 0.235247, 0.88348, 0.405121, 0.728318, -0.436245, 0.528434, 8.69133, 11.3443, 6.5396)
+material_override = SubResource("StandardMaterial3D_2ktve")
+mesh = SubResource("BoxMesh_vfe8r")
